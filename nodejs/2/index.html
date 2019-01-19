@@ -1,0 +1,36 @@
+<button onclick="api1()">api1</button>
+<button onclick="api2()">api2</button>
+
+<script>
+  function api1() {
+    fetch('./api1?a1=123&b1=234')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+      });
+  }
+
+  function api2() {
+
+    let data = {
+      a1: 123,
+      b1: 6787
+    };
+
+    fetch('./api2', {
+        body: JSON.stringify(data),
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: "POST"
+      })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+      });
+  }
+</script>
